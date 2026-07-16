@@ -19,6 +19,13 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: "StudyOS AI",
   description: "Track your GPA and academic progress",
+  manifest: "/manifest.json",
+  themeColor: "#ef4444",
+  appleWebApp: {
+    capable: true,
+    statusBarStyle: "black-translucent",
+    title: "StudyOS",
+  },
 };
 
 export default function RootLayout({

@@ -27,7 +27,7 @@ export const metadata: Metadata = {
     title: "StudyOS",
   },
   icons: {
-    apple: "/icon-192.png", // السطر ده اللي هيجبر الأيفون يقرأ اللوجو
+    apple: "/icon-192.png", 
   },
 };
 

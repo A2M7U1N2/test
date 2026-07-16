@@ -41,6 +41,10 @@ export default function RootLayout({
       lang="en"
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
+      <head>
+        {/* السطر ده اللي هيجبر الأيفون ياخد اللوجو */}
+        <link rel="apple-touch-icon" href="/icon-512.png" />
+      </head>
       <body className="min-h-full flex flex-col">
         <ThemeProvider>
           <SemesterProvider>

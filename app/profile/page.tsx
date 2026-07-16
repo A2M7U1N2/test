@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, Suspense } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
 import { getProfile, updateProfile } from "@/actions/profile";
 import { Button } from "@/components/ui/Button";
@@ -16,10 +16,12 @@ const YEAR_OPTIONS = [
   { value: "5th Year", label: "5th Year" },
 ];
 
-export default function ProfilePage() {
+// 1. عملنا الـ Component ده عشان يحتوي على الـ Form والـ searchParams
+function ProfileForm() {
   const router = useRouter();
   const searchParams = useSearchParams();
   const isOnboarding = searchParams.get("onboarding") === "true";
+  
   const [loading, setLoading] = useState(true);
   const [saving, setSaving] = useState(false);
   const [saved, setSaved] = useState(false);
@@ -144,5 +146,18 @@ export default function ProfilePage() {
         </Button>
       </form>
     </main>
+  );
+}
+
+// 2. الصفحة الرئيسية دلوقتي بقت مجرد حاوية آمنة لـ Suspense عشان الـ Build يعدي
+export default function ProfilePage() {
+  return (
+    <Suspense fallback={
+      <main className="max-w-2xl mx-auto p-5">
+        <p className="text-muted-foreground">Loading profile template...</p>
+      </main>
+    }>
+      <ProfileForm />
+    </Suspense>
   );
 }

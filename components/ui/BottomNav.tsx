@@ -7,7 +7,7 @@ const NAV_ITEMS = [
   { href: "/", icon: Home, label: "Home" },
   { href: "/calendar", icon: Calendar, label: "Calendar" },
   { href: "/settings", icon: Settings, label: "Settings" },
-  { href: "#", icon: Bot, label: "Bot", disabled: true },
+  { href: "/bot", icon: Bot, label: "Bot", disabled: false },
 ];
 
 export function BottomNav() {

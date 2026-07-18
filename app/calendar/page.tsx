@@ -19,6 +19,7 @@ export default function CalendarPage() {
     classSchedule,
     events,
     loading,
+    error,
     loadForSemester,
     addClassSession,
     updateClassSession,
@@ -75,7 +76,12 @@ export default function CalendarPage() {
   };
 
   // ترتيب المحاضرات حسب اليوم
-  const sortedSchedule = [...classSchedule].sort((a, b) => a.dayOfWeek - b.dayOfWeek || a.startTime.localeCompare(b.startTime));
+  const sortedSchedule = [...classSchedule].sort((a, b) => {
+    if (a.dayOfWeek !== b.dayOfWeek) {
+      return a.dayOfWeek - b.dayOfWeek;
+    }
+    return a.startTime.localeCompare(b.startTime);
+  });
 
   if (semesters.length === 0) {
     return (
@@ -91,6 +97,12 @@ export default function CalendarPage() {
   return (
     <main className="max-w-2xl mx-auto p-5 pb-24 w-full">
       <h1 className="text-2xl font-bold text-foreground mb-4">Calendar</h1>
+
+      {error && (
+        <div className="bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-800 rounded-lg p-4 mb-4">
+          <p className="text-red-600 dark:text-red-400 text-sm">{error}</p>
+        </div>
+      )}
 
       <Select
         value={selectedSemesterId}

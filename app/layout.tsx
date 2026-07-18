@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { SemesterProvider } from "@/lib/SemesterContext";
@@ -20,15 +20,18 @@ export const metadata: Metadata = {
   title: "StudyOS AI",
   description: "Track your GPA and academic progress",
   manifest: "/manifest.json",
-  themeColor: "#ef4444",
   appleWebApp: {
     capable: true,
     statusBarStyle: "black-translucent",
     title: "StudyOS",
   },
   icons: {
-    apple: "/icon-192.png", 
+    apple: "/icon-192.png",
   },
+};
+
+export const viewport: Viewport = {
+  themeColor: "#ef4444",
 };
 
 export default function RootLayout({

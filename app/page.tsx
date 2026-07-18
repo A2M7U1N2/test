@@ -14,7 +14,7 @@ import { Plus } from "lucide-react";
 
 export default function Home() {
   const router = useRouter();
-  const { semesters, loading, addSemester, updateSemester, deleteSemester } = useSemesters();
+  const { semesters, loading, error, addSemester, updateSemester, deleteSemester } = useSemesters();
   const [modalOpen, setModalOpen] = useState(false);
   const [editingSemester, setEditingSemester] = useState<Semester | null>(null);
   const [checkingProfile, setCheckingProfile] = useState(true);
@@ -62,6 +62,12 @@ export default function Home() {
         <p className="text-xs text-muted-foreground uppercase tracking-wide">Welcome Back,</p>
         <h1 className="text-2xl font-bold text-foreground">My Semesters</h1>
       </div>
+
+      {error && (
+        <div className="bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-800 rounded-lg p-4 mb-4">
+          <p className="text-red-600 dark:text-red-400 text-sm">{error}</p>
+        </div>
+      )}
 
       <GpaHeroCard
         title="Cumulative GPA"

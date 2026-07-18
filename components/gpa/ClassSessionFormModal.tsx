@@ -113,7 +113,7 @@ export function ClassSessionFormModal({
             <Select
               label="Type"
               value={sessionType}
-              onChange={(e) => setSessionType(e.target.value as any)}
+              onChange={(e) => setSessionType(e.target.value as "Lecture" | "Section" | "Lab")}
               options={SESSION_TYPES}
             />
             <Select

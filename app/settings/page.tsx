@@ -67,13 +67,13 @@ export default function SettingsPage() {
             </div>
             <button
               onClick={toggleTheme}
-              className={`w-11 h-6 rounded-full transition-colors relative ${
+              className={`w-11 h-6 rounded-full transition-colors relative overflow-hidden ${
                 theme === "dark" ? "bg-red-600" : "bg-border"
               }`}
             >
               <span
-                className={`absolute top-0.5 h-5 w-5 bg-white rounded-full transition-transform ${
-                  theme === "dark" ? "translate-x-5" : "translate-x-0.5"
+                className={`absolute top-0.5 left-0.5 h-5 w-5 bg-white rounded-full transition-transform ${
+                  theme === "dark" ? "translate-x-5" : "translate-x-0"
                 }`}
               />
             </button>

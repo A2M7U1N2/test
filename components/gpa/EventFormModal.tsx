@@ -96,7 +96,7 @@ export function EventFormModal({
             <Select
               label="Event Type"
               value={eventType}
-              onChange={(e) => setEventType(e.target.value as any)}
+              onChange={(e) => setEventType(e.target.value as "Quiz" | "Assignment" | "Midterm" | "Final")}
               options={EVENT_TYPES}
             />
             <Input
